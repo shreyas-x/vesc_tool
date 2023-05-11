@@ -185,7 +185,7 @@ void PageExperiments::valuesReceived(MC_VALUES values, unsigned int mask)
         double timeElapsed = (double)mExperimentTimer.elapsed() / 1000.0;
         mTimeVec.append(timeElapsed);
         double unixTime = (double)QDateTime::currentSecsSinceEpoch();
-        mUnixTimeVec.append(unixtime + timeElapsed);
+        mUnixTimeVec.append(unixTime + timeElapsed);
         mCurrentInVec.append(values.current_in);
         mCurrentMotorVec.append(values.current_motor);
         mPowerVec.append(values.current_in * values.v_in);
