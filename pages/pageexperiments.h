@@ -81,6 +81,7 @@ private:
     VescInterface *mVesc;
     experiment_state mState;
     QVector<double> mTimeVec;
+    QVector<double> mUnixTimeVec;
     QVector<double> mCurrentInVec;
     QVector<double> mCurrentMotorVec;
     QVector<double> mVoltageVec;

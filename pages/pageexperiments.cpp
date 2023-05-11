@@ -26,6 +26,7 @@
 #include <QMessageBox>
 #include <QFile>
 #include <QTextStream>
+#include <QDateTime>
 #include <cmath>
 
 #ifdef HAS_SERIALPORT
@@ -181,7 +182,10 @@ void PageExperiments::valuesReceived(MC_VALUES values, unsigned int mask)
         }
 #endif
 
-        mTimeVec.append((double)mExperimentTimer.elapsed() / 1000.0);
+        double timeElapsed = (double)mExperimentTimer.elapsed() / 1000.0;
+        mTimeVec.append(timeElapsed);
+        double unixTime = (double)QDateTime::currentSecsSinceEpoch();
+        mUnixTimeVec.append(unixtime + timeElapsed);
         mCurrentInVec.append(values.current_in);
         mCurrentMotorVec.append(values.current_motor);
         mPowerVec.append(values.current_in * values.v_in);
